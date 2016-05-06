@@ -1,7 +1,7 @@
 server {
     listen 80 default_server;
     root /var/www/html;
-    index index.html index.php;
+    index index.php;
 
     charset utf-8;
 
