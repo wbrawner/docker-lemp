@@ -1,7 +1,17 @@
 FROM php:5.6-fpm
 
+# Install required dependencies
+RUN apt-get update -y && apt-get install -y libc6 libfreetype6-dev \
+libgd3 libjpeg62-turbo-dev libpng12-dev libvpx1 libx11-6 libxpm4 \
+zlib1g phpapi-20131226 php5-common ucf libcurl4-gnutls-dev libltdl7 \
+libmcrypt-dev libgcc1 libicu52 libgcc1 libicu-dev
+
 # Install required php extensions
-RUN apt-get update -y && apt-get install -y php5-mysql php5-gd php5-curl php5-mcrypt
+RUN docker-php-ext-install gd && \
+docker-php-ext-install mcrypt && \
+docker-php-ext-install intl && \
+docker-php-ext-install curl && \
+docker-php-ext-install pdo_mysql
 
 # Install composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
