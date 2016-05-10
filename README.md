@@ -3,7 +3,7 @@ Accolade's Docker LEMP Stack for Magento
 
 To get started, first [download and install Docker](https://docs.docker.com/engine/installation/).
 
-Once you have that out of the way, you'll first need to delete the default machine, and replace it with one that has a bit more RAM. You shouldn't allocate more than half of your total RAM to the machine. Since I have 8GB of RAM, I'll allocate 4GB to Docker, so I still have a bit for my host machine:
+Once you have that out of the way, you'll first need to delete the default machine, and replace it with one that has a bit more RAM. You shouldn't allocate more than half oif your total RAM to the machine. Since I have 8GB of RAM, I'll allocate 4GB to Docker, so I still have a bit for my host machine:
 
 Remove the existing machine:
 
@@ -25,7 +25,7 @@ From the docker-lemp directory, you can run
 
 `docker-compose up -d`
 
-This will take some time because Docker will have to fetch and configure all of the containers required to run the LEMP stack. As per the Docker philosophy, each process is run in it's own container.
+This will take some time because Docker will have to fetch and configure all of the containers required to run the LEMP stack. As per the Docker philosophy, each process is run in its own container.
 
 Once the installation is complete, run
 
