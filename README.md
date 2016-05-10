@@ -45,7 +45,8 @@ To get shell access to your machine, there are a couple of things you have to ta
 
 this will give you an output that looks something like this:
 
-```$ docker ps
+```bash
+$ docker ps
  CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS              PORTS                         NAMES
  50d61f2b31cb        dockerlemp_nginx        "nginx -g 'daemon off"   About an hour ago   Up About an hour    0.0.0.0:80->80/tcp, 443/tcp   dockerlemp_nginx_1
  190bc213fe3a        dockerlemp_php          "php-fpm"                About an hour ago   Up About an hour    9000/tcp                      dockerlemp_php_1
