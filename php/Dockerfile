@@ -29,5 +29,7 @@ RUN apt-get install -y wget && \
 # Install Accolade Magerun Tools
 RUN apt-get install -y git && \
 mkdir -p /usr/local/share/n98-magerun/modules && \
-cd /usr/local/share/n98-magerun/modules && \
-git clone https://github.com/Accolades/MagerunTools.git
+git clone https://github.com/Accolades/MagerunTools.git /usr/local/share/n98-magerun/modules/MagerunTools
+
+# Install Magento Mess Detector
+RUN git clone git@github.com:AOEpeople/mpmd.git /usr/local/share/n98-magerun/modules/mpmd
