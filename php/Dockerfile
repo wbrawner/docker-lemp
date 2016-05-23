@@ -4,7 +4,7 @@ FROM php:5.6-fpm
 RUN apt-get update -y && apt-get install -y libc6 libfreetype6-dev \
 libgd3 libjpeg62-turbo-dev libpng12-dev libvpx1 libx11-6 libxpm4 \
 zlib1g phpapi-20131226 php5-common ucf libcurl4-gnutls-dev libltdl7 \
-libmcrypt-dev libgcc1 libicu52 libgcc1 libicu-dev
+libmcrypt-dev libgcc1 libicu52 libgcc1 libicu-dev wget git
 
 # Install required php extensions
 RUN docker-php-ext-install gd && \
@@ -20,16 +20,17 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     php -r "unlink('composer-setup.php');"
 
 # Install magerun
-RUN apt-get install -y wget && \
-    wget https://files.magerun.net/n98-magerun.phar && \
-    apt-get purge -y wget && \
+RUN wget https://files.magerun.net/n98-magerun.phar && \
     mv n98-magerun.phar /usr/bin/ && \
     echo 'alias magerun="php -f /usr/bin/n98-magerun.phar --"' >> /root/.bashrc
 
 # Install Accolade Magerun Tools
-RUN apt-get install -y git && \
-mkdir -p /usr/local/share/n98-magerun/modules && \
+RUN mkdir -p /usr/local/share/n98-magerun/modules && \
 git clone https://github.com/Accolades/MagerunTools.git /usr/local/share/n98-magerun/modules/MagerunTools
 
 # Install Magento Mess Detector
 RUN git clone https://github.com/AOEpeople/mpmd.git /usr/local/share/n98-magerun/modules/mpmd
+
+# Install modman
+RUN wget -q --no-check-certificate -O - https://raw.github.com/colinmollenhour/modman/master/modman-installer | bash && \
+mv ~/bin/modman /usr/local/bin/modman
